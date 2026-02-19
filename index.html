@@ -7,17 +7,16 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* VARIABLES DE COLOR - AJUSTADAS AL VERDE DE TU IMAGEN */
+    /* VARIABLES DE COLOR - MÁS VERDE SUAVE Y NATURAL COMO TU IMAGEN */
     :root {
-      --verde-dark: #00695C;     /* Verde oscuro del círculo Kapha */
-      --verde-main: #2E7D7A;     /* Verde teal principal de tu imagen */
-      --verde-soft: #4DB6AC;     /* Verde claro/acento para Vata y fondos */
-      --beige-light: #F5F5DC;    /* Beige claro del fondo */
+      --verde-dark: #2E7D32;     /* Verde oscuro bosque */
+      --verde-main: #4CAF50;     /* Verde principal suave y vivo */
+      --verde-soft: #81C784;     /* Verde claro para fondos y acentos */
+      --beige-light: #F1F8E9;    /* Beige muy claro, casi blanco-verde */
       --white: #ffffff;
-      --text-dark: #1f2f2e;
-      --shadow-soft: 0 10px 30px rgba(0,105,92,0.12); /* sombra con toque verde */
+      --text-dark: #1B5E20;
+      --shadow-soft: 0 10px 30px rgba(76,175,80,0.15);
     }
-    /* Resto del CSS (solo cambié los colores relevantes) */
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: var(--text-dark); background-color: var(--beige-light); line-height: 1.6; }
@@ -27,24 +26,43 @@
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1200px; margin: 0 auto; }
 
-    header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(245,245,220,0.9); backdrop-filter: blur(6px); z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-    .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--verde-dark); }
-    .nav-links a::after { background: var(--verde-main); }
+    /* Header - beige suave con borde redondeado como en tu imagen */
+    header { position: fixed; top: 0; left: 0; width: 100%; background: var(--beige-light); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
+    .logo { font-size: 1.8rem; color: var(--verde-main); }
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-links a { font-size: 1rem; padding: 0.5rem 1rem; border-radius: 30px; transition: background 0.3s; }
+    .nav-links a:hover { background: rgba(129,199,132,0.3); }
+    .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
 
+    /* Hero - más invitador, con Buda y flores verdes */
     .hero {
       min-height: 100vh;
-      background: linear-gradient(rgba(0,105,92,0.65), rgba(46,125,122,0.75)),
-                  url("https://thumbs.dreamstime.com/b/buddha-statue-bokeh-green-background-buddha-statue-bokeh-96649590.jpg") center/cover no-repeat;
+      background: linear-gradient(rgba(76,175,80,0.5), rgba(129,199,132,0.4)),
+                  url("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80") center/cover no-repeat;
       display: flex; align-items: center; text-align: center; color: var(--white); padding-top: 6rem;
     }
-    .btn { background: var(--beige-light); color: var(--verde-dark); }
-    .btn:hover { background: var(--white); }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); }
+    .hero p { max-width: 800px; margin: 0 auto 2.5rem; font-size: 1.2rem; text-shadow: 1px 1px 5px rgba(0,0,0,0.3); }
+    .btn { padding: 1rem 2.5rem; border-radius: 50px; background: var(--verde-main); color: var(--white); font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+    .btn:hover { background: var(--verde-dark); transform: translateY(-3px); }
 
-    .vata { color: #64B5F6; } /* azul claro como en tu imagen */
-    .pitta { color: #FF9800; }
-    .kapha { color: var(--verde-soft); }
+    /* Fundamentos - sección amplia con tarjetas */
+    .fundamentos { background: var(--verde-soft); color: var(--text-dark); }
+    .fundamentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+    .fundamento-card { background: var(--white); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: var(--shadow-soft); transition: transform 0.4s ease, opacity 0.6s ease; opacity: 0; transform: translateY(30px); }
+    .fundamento-card.visible { opacity: 1; transform: translateY(0); }
+    .fundamento-icon { font-size: 3rem; margin-bottom: 1rem; }
 
-    /* ... (el resto del CSS es idéntico al original, solo colores cambiados) */
+    /* Otras secciones con más verde */
+    .biblioteca, .shop, #contacto { background: linear-gradient(to bottom, var(--verde-soft), var(--beige-light)); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links { position: absolute; top: 100%; right: 0; background: var(--beige-light); flex-direction: column; width: 100%; padding: 1rem; display: none; text-align: center; }
+      .nav-links.active { display: flex; }
+      .menu-toggle { display: block; }
+    }
   </style>
 </head>
 <body>
@@ -55,6 +73,7 @@
       <div class="menu-toggle" id="menuToggle">☰</div>
       <div class="nav-links" id="navLinks">
         <a href="#inicio">Inicio</a>
+        <a href="#fundamentos">Fundamentos</a>
         <a href="#biblioteca">Biblioteca</a>
         <a href="#tienda">Tienda</a>
         <a href="#contacto">Contacto</a>
@@ -62,58 +81,53 @@
     </nav>
   </header>
 
-  <!-- HERO - imagen ajustada al verde de tu foto -->
+  <!-- INICIO / HERO - invitador -->
   <section class="hero" id="inicio">
     <div class="container">
-      <h1>Ayurbodhi – Equilibrio Ayurveda y Conciencia</h1>
-      <p>Descubre el poder de los doshas: Vata, Pitta y Kapha</p>
-      <a href="#biblioteca" class="btn">Explorar Biblioteca</a>
+      <h1>Bienvenido a Ayurbodhi</h1>
+      <p>En un mundo acelerado, el Ayurveda te invita a reconectar con tu esencia natural. Descubre prácticas ancestrales que nutren cuerpo, mente y espíritu, promoviendo armonía, vitalidad y paz interior. ¡Tu viaje hacia el equilibrio comienza aquí!</p>
+      <a href="#fundamentos" class="btn">Explorar los Fundamentos del Ayurveda</a>
     </div>
   </section>
 
-  <!-- DOSHAS -->
-  <section class="doshas">
+  <!-- FUNDAMENTOS DEL AYURVEDA - sección principal -->
+  <section class="fundamentos" id="fundamentos">
     <div class="container">
-      <h2 style="text-align:center;">Los Tres Doshas</h2>
-      <div class="dosha-grid">
-        <div class="dosha-card">
-          <div class="dosha-icon vata">🌀</div>
-          <h3>Vata</h3>
-          <p>Energía del aire y el movimiento. Creatividad y ligereza.</p>
+      <h2 style="text-align:center;">Fundamentos del Ayurveda</h2>
+      <p style="text-align:center; max-width: 900px; margin: 0 auto 3rem; font-size: 1.1rem;">El Ayurveda, la "ciencia de la vida", es un sistema holístico de origen indio con más de 5,000 años. Busca el equilibrio entre los cinco elementos (éter, aire, fuego, agua y tierra) que forman todo en el universo y en nosotros. A través de nutrición personalizada, rutinas diarias, hierbas, yoga y meditación, promueve la prevención de enfermedades, el bienestar emocional y la longevidad. Sus principios clave incluyen escuchar tu cuerpo, vivir en sintonía con la naturaleza y cultivar hábitos que nutran todos los aspectos de tu ser.</p>
+      <div class="fundamentos-grid">
+        <div class="fundamento-card">
+          <div class="fundamento-icon">🌿</div>
+          <h3>Los Cinco Elementos</h3>
+          <p>Éter, aire, fuego, agua y tierra son la base de la vida. Entiende cómo se manifiestan en ti para lograr armonía.</p>
         </div>
-        <div class="dosha-card">
-          <div class="dosha-icon pitta">☀️</div>
-          <h3>Pitta</h3>
-          <p>Fuego y transformación. Enfoque y determinación.</p>
+        <div class="fundamento-card">
+          <div class="fundamento-icon">🧘‍♀️</div>
+          <h3>Equilibrio Holístico</h3>
+          <p>Armoniza cuerpo, mente y espíritu con prácticas diarias que fomentan la salud integral y la paz interior.</p>
         </div>
-        <div class="dosha-card">
-          <div class="dosha-icon kapha">💧</div>
-          <h3>Kapha</h3>
-          <p>Tierra y agua. Estabilidad y compasión.</p>
+        <div class="fundamento-card">
+          <div class="fundamento-icon">🔄</div>
+          <h3>Los Tres Doshas (breve)</h3>
+          <p>Vata (movimiento), Pitta (transformación) y Kapha (estructura) definen tu constitución única y guían recomendaciones personalizadas.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BIBLIOTECA - imágenes con tonos verdes -->
+  <!-- BIBLIOTECA -->
   <section id="biblioteca">
     <div class="container">
       <h2 style="text-align:center;">Biblioteca Ayurveda</h2>
       <div class="library-grid">
         <div class="library-item">
-          <img src="https://thumbs.dreamstime.com/b/ayurveda-doshas-infographic-vector-illustration-poster-vata-pitta-kapha-doshas-five-elements-ayurveda-indian-ayurveda-353222839.jpg" alt="Guía Ayurveda">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Guía Ayurveda">
           <div>
             <h3>Guía Básica Ayurveda</h3>
             <p>Introducción práctica al equilibrio cuerpo-mente.</p>
           </div>
         </div>
-        <div class="library-item">
-          <img src="https://thumbs.dreamstime.com/b/ayurveda-symbols-vata-pitta-kapha-three-doshas-vata-pitta-kapha-ayurvedic-symbols-body-constitution-types-designed-138035478.jpg" alt="Doshas">
-          <div>
-            <h3>Comprende tus Doshas</h3>
-            <p>Identifica tu constitución energética.</p>
-          </div>
-        </div>
+        <!-- Agrega más tarjetas si quieres -->
       </div>
     </div>
   </section>
@@ -124,13 +138,13 @@
       <h2 style="text-align:center;">Tienda Consciente</h2>
       <div class="shop-grid">
         <div class="product">
-          <img src="https://thumbs.dreamstime.com/b/ayurveda-body-types-illustration-doshas-vata-pitta-kapha-ayurvedic-ayurvedic-infographic-healthy-lifestyle-harmony-nature-66446648.jpg" alt="Libro Ayurveda">
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1725f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Libro Ayurveda">
           <h3>Ayurbodhi – Libro I</h3>
           <div class="price">$19.99 USD</div>
           <p>Fundamentos espirituales del Ayurveda.</p>
           <a href="#" class="btn">Comprar vía PayPal</a>
         </div>
-        <!-- Agrega más si quieres -->
+        <!-- Agrega más -->
       </div>
     </div>
   </section>
@@ -146,24 +160,24 @@
         <button type="submit" class="btn">Enviar Mensaje</button>
       </form>
       <p style="text-align:center; margin-top:1.5rem;">
-        Email: contacto@ayurbodhi.com · WhatsApp: +52 000 000 0000
+        Email: contacto@ayurbodhi.com · WhatsApp: +52 TU NÚMERO
       </p>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER - actualizado con Pachuca -->
   <footer>
-    © 2026 Ayurbodhi – Tizayuca, Hidalgo · Redes Sociales
+    © 2026 Ayurbodhi – Pachuca, Hidalgo · Redes Sociales
   </footer>
 
-  <!-- JS (igual) -->
+  <!-- JS -->
   <script>
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-    const cards = document.querySelectorAll('.dosha-card');
+    const cards = document.querySelectorAll('.fundamento-card');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
