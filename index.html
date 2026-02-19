@@ -7,12 +7,12 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* VARIABLES DE COLOR - MÁS VERDE SUAVE Y NATURAL COMO TU IMAGEN */
+    /* VARIABLES DE COLOR - MÁS VERDE SUAVE Y NATURAL */
     :root {
-      --verde-dark: #2E7D32;     /* Verde oscuro bosque */
-      --verde-main: #4CAF50;     /* Verde principal suave y vivo */
-      --verde-soft: #81C784;     /* Verde claro para fondos y acentos */
-      --beige-light: #F1F8E9;    /* Beige muy claro, casi blanco-verde */
+      --verde-dark: #2E7D32;
+      --verde-main: #4CAF50;
+      --verde-soft: #81C784;
+      --beige-light: #F1F8E9;
       --white: #ffffff;
       --text-dark: #1B5E20;
       --shadow-soft: 0 10px 30px rgba(76,175,80,0.15);
@@ -26,7 +26,6 @@
     section { padding: 5rem 1.5rem; }
     .container { max-width: 1200px; margin: 0 auto; }
 
-    /* Header - beige suave con borde redondeado como en tu imagen */
     header { position: fixed; top: 0; left: 0; width: 100%; background: var(--beige-light); backdrop-filter: blur(10px); z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
     .nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; }
     .logo { font-size: 1.8rem; color: var(--verde-main); }
@@ -35,7 +34,7 @@
     .nav-links a:hover { background: rgba(129,199,132,0.3); }
     .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
 
-    /* Hero - más invitador, con Buda y flores verdes */
+    /* Hero - ahora con Buda verde real */
     .hero {
       min-height: 100vh;
       background: linear-gradient(rgba(76,175,80,0.5), rgba(129,199,132,0.4)),
@@ -47,17 +46,14 @@
     .btn { padding: 1rem 2.5rem; border-radius: 50px; background: var(--verde-main); color: var(--white); font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
     .btn:hover { background: var(--verde-dark); transform: translateY(-3px); }
 
-    /* Fundamentos - sección amplia con tarjetas */
     .fundamentos { background: var(--verde-soft); color: var(--text-dark); }
     .fundamentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
     .fundamento-card { background: var(--white); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: var(--shadow-soft); transition: transform 0.4s ease, opacity 0.6s ease; opacity: 0; transform: translateY(30px); }
     .fundamento-card.visible { opacity: 1; transform: translateY(0); }
     .fundamento-icon { font-size: 3rem; margin-bottom: 1rem; }
 
-    /* Otras secciones con más verde */
     .biblioteca, .shop, #contacto { background: linear-gradient(to bottom, var(--verde-soft), var(--beige-light)); }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .nav-links { position: absolute; top: 100%; right: 0; background: var(--beige-light); flex-direction: column; width: 100%; padding: 1rem; display: none; text-align: center; }
       .nav-links.active { display: flex; }
@@ -81,7 +77,7 @@
     </nav>
   </header>
 
-  <!-- INICIO / HERO - invitador -->
+  <!-- INICIO / HERO -->
   <section class="hero" id="inicio">
     <div class="container">
       <h1>Bienvenido a Ayurbodhi</h1>
@@ -90,7 +86,7 @@
     </div>
   </section>
 
-  <!-- FUNDAMENTOS DEL AYURVEDA - sección principal -->
+  <!-- FUNDAMENTOS DEL AYURVEDA -->
   <section class="fundamentos" id="fundamentos">
     <div class="container">
       <h2 style="text-align:center;">Fundamentos del Ayurveda</h2>
@@ -127,12 +123,11 @@
             <p>Introducción práctica al equilibrio cuerpo-mente.</p>
           </div>
         </div>
-        <!-- Agrega más tarjetas si quieres -->
       </div>
     </div>
   </section>
 
-  <!-- TIENDA -->
+  <!-- TIENDA - sin PayPal -->
   <section class="shop" id="tienda">
     <div class="container">
       <h2 style="text-align:center;">Tienda Consciente</h2>
@@ -142,9 +137,8 @@
           <h3>Ayurbodhi – Libro I</h3>
           <div class="price">$19.99 USD</div>
           <p>Fundamentos espirituales del Ayurveda.</p>
-          <a href="#" class="btn">Comprar vía PayPal</a>
+          <!-- Quitado el botón PayPal -->
         </div>
-        <!-- Agrega más -->
       </div>
     </div>
   </section>
@@ -165,7 +159,7 @@
     </div>
   </section>
 
-  <!-- FOOTER - actualizado con Pachuca -->
+  <!-- FOOTER -->
   <footer>
     © 2026 Ayurbodhi – Pachuca, Hidalgo · Redes Sociales
   </footer>
