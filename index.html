@@ -7,7 +7,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
-    /* VARIABLES DE COLOR - MÁS VERDE SUAVE Y NATURAL */
     :root {
       --verde-dark: #2E7D32;
       --verde-main: #4CAF50;
@@ -34,7 +33,6 @@
     .nav-links a:hover { background: rgba(129,199,132,0.3); }
     .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; }
 
-    /* Hero - ahora con Buda verde real y fondo sereno (sin casa ni elementos fuera de lugar) */
     .hero {
       min-height: 100vh;
       background: linear-gradient(rgba(76,175,80,0.5), rgba(129,199,132,0.4)),
@@ -46,11 +44,11 @@
     .btn { padding: 1rem 2.5rem; border-radius: 50px; background: var(--verde-main); color: var(--white); font-weight: 600; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
     .btn:hover { background: var(--verde-dark); transform: translateY(-3px); }
 
-    .fundamentos { background: var(--verde-soft); color: var(--text-dark); }
-    .fundamentos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
-    .fundamento-card { background: var(--white); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: var(--shadow-soft); transition: transform 0.4s ease, opacity 0.6s ease; opacity: 0; transform: translateY(30px); }
-    .fundamento-card.visible { opacity: 1; transform: translateY(0); }
-    .fundamento-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .fundamentos, .cursos { background: var(--verde-soft); color: var(--text-dark); }
+    .fundamentos-grid, .curso-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+    .fundamento-card, .curso-card { background: var(--white); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: var(--shadow-soft); transition: transform 0.4s ease, opacity 0.6s ease; opacity: 0; transform: translateY(30px); }
+    .fundamento-card.visible, .curso-card.visible { opacity: 1; transform: translateY(0); }
+    .fundamento-icon, .curso-icon { font-size: 3rem; margin-bottom: 1rem; }
 
     .biblioteca, .shop, #contacto { background: linear-gradient(to bottom, var(--verde-soft), var(--beige-light)); }
 
@@ -70,6 +68,7 @@
       <div class="nav-links" id="navLinks">
         <a href="#inicio">Inicio</a>
         <a href="#fundamentos">Fundamentos</a>
+        <a href="#cursos">Diplomados y Cursos</a>
         <a href="#biblioteca">Biblioteca</a>
         <a href="#tienda">Tienda</a>
         <a href="#contacto">Contacto</a>
@@ -77,7 +76,7 @@
     </nav>
   </header>
 
-  <!-- INICIO / HERO - con Buda verde correcto -->
+  <!-- INICIO / HERO -->
   <section class="hero" id="inicio">
     <div class="container">
       <h1>Bienvenido a Ayurbodhi</h1>
@@ -111,13 +110,30 @@
     </div>
   </section>
 
+  <!-- DIPLOMADOS Y CURSOS - nueva sección -->
+  <section class="cursos" id="cursos">
+    <div class="container">
+      <h2 style="text-align:center;">Diplomados y Cursos</h2>
+      <p style="text-align:center; max-width: 900px; margin: 0 auto 2rem; font-size: 1.1rem;">Aprende de la mano de expertas el arte transformador del Ayurveda a través de talleres prácticos y profundos. Estos programas te permitirán dominar herramientas reales para el cuidado integral: alimentación consciente, herbolaria ayurvédica, meditación guiada y masaje ayurvédico (Abhyanga). Cada curso combina teoría ancestral con práctica moderna, para que puedas aplicar lo aprendido en tu vida diaria o en tu profesión como terapeuta holístico.</p>
+
+      <div class="curso-grid">
+        <div class="curso-card">
+          <div class="curso-icon">📚</div>
+          <h3>Talleres y Diplomados con Mónica Ariza Linares</h3>
+          <p>Docente de formación y Terapeuta en Medicina Tradicional Ayurvédica, evaluadora de competencias ante la SEP CONOCER. Ofrezco certificados oficiales para terapeutas holísticos. Mis programas están diseñados para que descubras cómo la alimentación, las plantas medicinales, la meditación y el toque sanador pueden equilibrar cuerpo, mente y emociones. Únete y transforma tu vida y la de quienes te rodean con herramientas auténticas y certificadas del Ayurveda.</p>
+          <p style="margin-top: 1.5rem; font-weight: 500;">¡Inscríbete y comienza tu camino como terapeuta consciente!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- BIBLIOTECA -->
   <section id="biblioteca">
     <div class="container">
       <h2 style="text-align:center;">Biblioteca Ayurveda</h2>
       <div class="library-grid">
         <div class="library-item">
-          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Guía Ayurveda">
+          <img src="https://thumbs.dreamstime.com/b/scenic-tranquil-nature-inspired-library-inviting-space-enchanting-reading-learning-serene-under-tree-invites-readers-373306759.jpg" alt="Biblioteca Ayurveda">
           <div>
             <h3>Guía Básica Ayurveda</h3>
             <p>Introducción práctica al equilibrio cuerpo-mente.</p>
@@ -127,16 +143,15 @@
     </div>
   </section>
 
-  <!-- TIENDA - sin PayPal -->
+  <!-- TIENDA -->
   <section class="shop" id="tienda">
     <div class="container">
       <h2 style="text-align:center;">Tienda Consciente</h2>
       <div class="shop-grid">
         <div class="product">
-          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1725f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Libro Ayurveda">
-          <h3>Ayurbodhi – Libro I</h3>
-          <div class="price">$19.99 USD</div>
-          <p>Fundamentos espirituales del Ayurveda.</p>
+          <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1725f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gastronomía de los Dioses">
+          <h3>Gastronomía de los Dioses</h3>
+          <p>Descubre cómo transformar tu salud y energía a través de la sabiduría milenaria del Ayurveda. Gastronomía de los Dioses es mucho más que un recetario, es una guía práctica para aprender a sanar desde la alimentación de forma natural, sencilla y deliciosa. Incluye más de 135 recetas fáciles de preparar, entre desayunos, comidas, cenas, panes, dulces, chutneys, bebidas, mieles terapéuticas, ghee, Masala y preparaciones con arroz basmati, cada desayuno, comida y cena está adaptada por estación y dosha (biotipo constitucional) para ayudarte a equilibrar la salud de tu cuerpo en cada momento del año. Además encontrarás un test para identificar tu biotipo constitucional y tus desequilibrios, con una introducción clara sobre las características físicas y mentales de cada dosha, una guía de alimentos esenciales en la despensa ayurvédica, y un protocolo natural para el manejo del sobre peso. Si deseas mejorar tu bienestar, fortalecer tu digestión y reconectar con tu cuerpo este libro será tu aliado para crear una vida más consciente, equilibrada y llena de vitalidad.</p>
         </div>
       </div>
     </div>
@@ -170,7 +185,7 @@
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
-    const cards = document.querySelectorAll('.fundamento-card');
+    const cards = document.querySelectorAll('.fundamento-card, .curso-card');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
